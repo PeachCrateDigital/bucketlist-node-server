@@ -1,0 +1,47 @@
+{
+  "name": "bucketlist",
+  "version": "0.0.0",
+  "description": "\"A node server for the bucketlist app\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -r dotenv/config ./bin/www dotenv_config_path=conf/.env",
+    "devstart": "ENV=dev DEBUG=app:* nodemon ./bin/www",
+    "test": "mocha",
+    "ci": "server-test 8081"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djpeach/bucketlist.git"
+  },
+  "keywords": [
+    "bucketlist",
+    "list",
+    "todo"
+  ],
+  "author": "Daniel Peach, Trent Spice, Jayden Thrasher, Nathalie Kroeker, Steven Camp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djpeach/bucketlist/issues"
+  },
+  "homepage": "https://github.com/djpeach/bucketlist#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "easy-log": "0.1.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "firebase-admin": "^8.6.0",
+    "graphql": "^14.5.4",
+    "graphql-tools": "^4.0.6",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.5",
+    "nodemon": "^1.19.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "request": "^2.88.0",
+    "start-server-and-test": "^1.10.0"
+  }
+}
