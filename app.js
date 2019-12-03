@@ -23,7 +23,17 @@ mongoose
   })
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: function (origin, cb) {
+      let wl = ['https://bucketlistgroup.now.sh'];
+      if (wl.indexOf(origin) != -1) {
+          cb(null, true);
+      } else {
+          cb(new Error('invalid origin: ' + origin), false);
+      }
+  },
+  optionsSuccessStatus: 200
+}))
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
