@@ -26,7 +26,7 @@ module.exports.resolvers = {
     return UserModel.find({ fbId: { $in: user.friends } })
   },
   friendRequests: (user) => {
-    return FriendRequestModel.find({ recipientId: user.id })
+    return FriendRequestModel.find({ recipientId: user.fbId })
   }
 }
 
