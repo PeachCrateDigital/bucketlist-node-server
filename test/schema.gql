@@ -1,0 +1,59 @@
+type FriendRequest {
+  id: ID!
+  from: User!
+  to: User!
+}
+
+type Item {
+  id: ID!
+  from: User!
+  to: User
+  message: String!
+  link: String
+}
+
+type List {
+  id: ID!
+  title: String!
+  items: [Item]
+}
+
+type Mutation {
+  createUser(firstName: String!, lastName: String!, email: String!, id: ID!): User
+  deleteUser(id: ID): User
+  removeFriend(userId: ID, friendId: ID): User
+  createList(title: String!, userId: ID!): List
+  deleteList(id: ID): List
+  createItem(senderId: ID!, recipientId: ID!, message: String!, link: String, listId: ID): Item
+  assignItemToList(id: ID!, listId: ID!): Item
+  deleteItem(id: ID): Item
+  createFriendRequest(senderId: ID!, recipientId: ID!): FriendRequest
+  acceptFriendRequest(id: ID!): FriendRequest
+  rejectFriendRequest(id: ID!): FriendRequest
+}
+
+type Query {
+  getUserById(id: ID!): User
+  getAllUsers: [User]
+  getUsersByQuery(query: String!, limit: Int = 10): [User]
+  getFriendsByQuery(userId: ID!, query: String!, limit: Int = 10): [User]
+  getAllFriends(userId: ID!): [User]
+  getListsByUser(userId: ID!): [List]
+  getListsByQuery(userId: ID!, query: String!, limit: Int = 10): [List]
+  getListById(id: ID!): List
+  getItemsByList(listId: ID!): [Item]
+  getNewItemsByUser(userId: ID!): [Item]
+  getFriendRequestsByUser(userId: ID!): [FriendRequest]
+}
+
+type User {
+  _id: ID!
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  lists: [List]
+  newItems: [Item]
+  friends: [User]
+  friendRequests: [FriendRequest]
+}
