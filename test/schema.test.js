@@ -179,4 +179,35 @@ describe('GraphQL Schema', () => {
             })
         })
     })
+
+    describe('Item Type', () => {
+        const FriendRequest = FriendRequestType.getFields()
+
+        describe('id field', () => {
+            it('should exist', () => {
+                expect(FriendRequest).to.include.keys(['id'])
+            })
+            it ('should be valid type ID!', () => {
+                expect(FriendRequest.id.type).to.eql(GraphQLNonNull(GraphQLID))
+            })
+        })
+
+        describe('from field', () => {
+            it('should exist', () => {
+                expect(FriendRequest).to.include.keys(['from'])
+            })
+            it ('should be valid type User!', () => {
+                expect(FriendRequest.from.type).to.eql(GraphQLNonNull(UserType))
+            })
+        })
+
+        describe('to field', () => {
+            it('should exist', () => {
+                expect(FriendRequest).to.include.keys(['to'])
+            })
+            it ('should be valid type User!', () => {
+                expect(FriendRequest.to.type).to.eql(GraphQLNonNull(UserType))
+            })
+        })
+    })
 });
