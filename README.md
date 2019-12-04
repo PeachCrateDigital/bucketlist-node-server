@@ -11,3 +11,8 @@
 * Clone project
 * in root of project run: `npm install`
 * in root of project run: `npm test`
+
+
+## Live Server (GraphQL)
+
+[GraphiQL](http://server.bucketlist.group/graphql)
