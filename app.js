@@ -23,7 +23,7 @@ mongoose
   })
 
 var corsOptions = {
-  origin: ['http://client.bucketlist.com', 'http://localhost:3000'],
+  origin: ['http://client.bucketlist.com', 'http://localhost:3000', 'capacitor://localhost'],
   optionsSuccessStatus: 200 
 }
 
