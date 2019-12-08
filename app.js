@@ -22,11 +22,14 @@ mongoose
     dbLog(`Could not connect to mongodb: ${error}`)
   })
 
-app.use(express.json())
-var whitelist = ['https://bucketlistgroup.now.sh']
 var corsOptions = {
-  origin: true
+  origin: ['http://client.bucketlist.com', 'http://localhost:3000'],
+  optionsSuccessStatus: 200 
 }
+
+app.use(express.json())
+app.options('*', cors(corsOptions))
+
 app.use(cors(corsOptions))
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
