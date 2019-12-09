@@ -1,5 +1,3 @@
-# bucketlist-node-server
-
 # BucketList: Node Server
 
 This server makes our app at [client.bucketlist.group](http://client.bucketlist.group) work. 
