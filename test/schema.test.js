@@ -7,9 +7,10 @@ const expect = chai.expect;
 const url = `http://localhost:3001/`;
 const request = require('supertest')(url);
 
-const schema = require('../graphql')
+const {typeDefs} = require('../graphql')
+const 
 
 describe('GraphQL', () => {
     // Tests
-    console.log(schema)
+    console.log(typeDefs)
 });
