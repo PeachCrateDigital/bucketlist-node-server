@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon -r dotenv/config ./bin/www dotenv_config_path=conf/.env",
     "devstart": "ENV=dev DEBUG=app:* nodemon ./bin/www",
-    "test": "mocha",
+    "test": "mocha test/*.test.js",
     "ci": "server-test 8081"
   },
   "repository": {
@@ -29,18 +29,20 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "easy-log": "0.1.1",
+    "easygraphql-tester": "^5.1.6",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "firebase-admin": "^8.6.0",
-    "graphql": "^14.5.4",
+    "graphql": "^14.5.8",
     "graphql-tools": "^4.0.6",
     "lodash": "^4.17.15",
     "mongoose": "^5.7.5",
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.2",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.1",
+    "mocha": "^6.2.2",
     "request": "^2.88.0",
     "start-server-and-test": "^1.10.0"
   }

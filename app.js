@@ -23,7 +23,11 @@ mongoose
   })
 
 app.use(express.json())
-app.use(cors())
+var whitelist = ['https://bucketlistgroup.now.sh']
+var corsOptions = {
+  origin: true
+}
+app.use(cors(corsOptions))
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
