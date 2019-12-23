@@ -58,6 +58,6 @@ workflows:
   test_all_deploy_master:
     jobs:
       - testing
-      - deploy
+      - deploy:
           requires:
             - testing
