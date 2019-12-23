@@ -41,6 +41,9 @@ jobs:
     branches:
       only:
         - master
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:12.6
 
     steps:
       
