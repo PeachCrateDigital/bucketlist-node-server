@@ -8,8 +8,6 @@ jobs:
     branches:
       only:
         - master
-        - develop
-        - testing
     docker:
       # specify the version you desire here
       - image: circleci/node:12.6
@@ -40,3 +38,9 @@ jobs:
 
       # run tests!
       - run: npm test
+
+      # deploy!
+      - run:
+        name: deploy
+        command: |
+          ssh -o "StrictHostKeyChecking no" deployer@server.bucketlist.group "cd ~/app/server.bucketlist.group; git pull; npm i; pm2 start pm2.config.js"
