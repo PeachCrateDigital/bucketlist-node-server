@@ -5,9 +5,6 @@
 version: 2
 jobs:
   build:
-    branches:
-      only:
-        - master
     docker:
       # specify the version you desire here
       - image: circleci/node:12.6
@@ -38,9 +35,20 @@ jobs:
 
       # run tests!
       - run: npm test
+  
 
+  deploy:
+    branches:
+      only:
+        - master
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:12.6
+
+    steps:
+      
       # deploy!
       - run:
-        name: deploy
-        command: |
-          ssh -o "StrictHostKeyChecking no" deployer@server.bucketlist.group "cd ~/app/server.bucketlist.group; git pull; npm i; pm2 start pm2.config.js"
+          name: deploy
+          command: |
+            ssh -o "StrictHostKeyChecking no" deployer@server.bucketlist.group "cd ~/app/server.bucketlist.group; git pull; npm i; pm2 start pm2.config.js"
