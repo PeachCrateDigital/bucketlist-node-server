@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  testing:
     docker:
       # specify the version you desire here
       - image: circleci/node:12.6
@@ -52,3 +52,12 @@ jobs:
           name: deploy
           command: |
             ssh -o "StrictHostKeyChecking no" deployer@server.bucketlist.group "cd ~/app/server.bucketlist.group; git pull; npm i; pm2 start pm2.config.js"
+
+workflows:
+  version: 2
+  test_all_deploy_master:
+    jobs:
+      - testing
+      - deploy
+          requires:
+            - testing
