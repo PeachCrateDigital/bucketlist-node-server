@@ -4,10 +4,7 @@
 #
 version: 2
 jobs:
-  build:
-    branches:
-      only:
-        - master
+  testing:
     docker:
       # specify the version you desire here
       - image: circleci/node:12.6
@@ -38,6 +35,12 @@ jobs:
 
       # run tests!
       - run: npm test
+  
+
+  deploy:
+    branches:
+      only:
+        - master
 
       # deploy!
       - run:
