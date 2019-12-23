@@ -48,7 +48,7 @@ jobs:
       - run:
           name: deploy
           command: |
-            ssh -o "StrictHostKeyChecking no" deployer@server.bucketlist.group "cd ~/app/server.bucketlist.group; git pull; npm i; pm2 start pm2.config.js"
+            ssh -o "StrictHostKeyChecking no" deployer@server.bucketlist.group "cd ~/apps/server.bucketlist.group; git pull; npm i; pm2 start pm2.config.js"
 
 workflows:
   version: 2
